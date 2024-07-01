@@ -1,0 +1,39 @@
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("GAME LOADING");
+        Scanner sc = new Scanner(System.in);
+        int y,c=0;
+        do
+        {  int number = (int) (Math.random() * 100);
+
+            int input ;
+            int x = 1;
+            do {
+                x++;
+                String response = JOptionPane.showInputDialog("ENTER A NUMBER BETWEEN 1-100");
+                input = Integer.parseInt(response);
+                if (input <= 0) {
+                    System.out.println("INVALID INPUT TRY AGAIN");
+                    continue;
+                }
+                if (input == number) {
+                    System.out.println("YOU GUESSED CORRECT NUMBER");
+                    System.out.println("YOU EARNED 1 POINTS");
+                    c++;
+                    break;
+                } else if (input > number)
+                    System.out.println("THE NUMBER IS TOO LARGE");
+                else
+                    System.out.println("THE NUMBER IS TOO SMALL");
+            } while (x <= 5);
+            System.out.println("GAME OVER");
+            System.out.println("MY NUMBER:");
+            System.out.println(number);
+            System.out.println("ENTER 1 TO RESTART THE GAME AND 0 TO END");
+            y = sc.nextInt();
+        }while(y>0);
+            System.out.println("TOTAL POINTS "+c);
+    }
+}
